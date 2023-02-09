@@ -11,6 +11,15 @@
 		BF677AD32995615E00FEC522 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF677AD22995615E00FEC522 /* ContentView.swift */; };
 		BF677AD52995615F00FEC522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF677AD42995615F00FEC522 /* Assets.xcassets */; };
 		BF677AD82995615F00FEC522 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF677AD72995615F00FEC522 /* Preview Assets.xcassets */; };
+		BF677ADF299561C800FEC522 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF677ADE299561C800FEC522 /* ImagePicker.swift */; };
+		BF677AE1299561ED00FEC522 /* RealTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF677AE0299561ED00FEC522 /* RealTimeView.swift */; };
+		BF677AE32995620E00FEC522 /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF677AE22995620E00FEC522 /* UploadView.swift */; };
+		BF677AE52995622F00FEC522 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF677AE42995622F00FEC522 /* VideoCapture.swift */; };
+		BF677AE72995625800FEC522 /* yolo5n_100epoch.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = BF677AE62995625800FEC522 /* yolo5n_100epoch.mlmodel */; };
+		BF677AEA2995640000FEC522 /* InterferenceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF677AE92995640000FEC522 /* InterferenceExtension.swift */; };
+		BF677AEC2995642100FEC522 /* ScreenShotExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF677AEB2995642100FEC522 /* ScreenShotExtension.swift */; };
+		BF677AEE2995643B00FEC522 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF677AED2995643B00FEC522 /* UIImage+Extension.swift */; };
+		BF677AF02995645100FEC522 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF677AEF2995645100FEC522 /* UIImageExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +28,16 @@
 		BF677AD22995615E00FEC522 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BF677AD42995615F00FEC522 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF677AD72995615F00FEC522 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BF677ADE299561C800FEC522 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		BF677AE0299561ED00FEC522 /* RealTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeView.swift; sourceTree = "<group>"; };
+		BF677AE22995620E00FEC522 /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
+		BF677AE42995622F00FEC522 /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
+		BF677AE62995625800FEC522 /* yolo5n_100epoch.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = yolo5n_100epoch.mlmodel; path = ../../../Downloads/yolo5n_100epoch.mlmodel; sourceTree = "<group>"; };
+		BF677AE92995640000FEC522 /* InterferenceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterferenceExtension.swift; sourceTree = "<group>"; };
+		BF677AEB2995642100FEC522 /* ScreenShotExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotExtension.swift; sourceTree = "<group>"; };
+		BF677AED2995643B00FEC522 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		BF677AEF2995645100FEC522 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		BF677AF1299568F400FEC522 /* GravAI-ios-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GravAI-ios-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +70,15 @@
 		BF677ACF2995615E00FEC522 /* GravAI_ios */ = {
 			isa = PBXGroup;
 			children = (
+				BF677AF1299568F400FEC522 /* GravAI-ios-Info.plist */,
 				BF677AD02995615E00FEC522 /* GravAI_iosApp.swift */,
+				BF677AE82995629F00FEC522 /* Extension */,
 				BF677AD22995615E00FEC522 /* ContentView.swift */,
+				BF677ADE299561C800FEC522 /* ImagePicker.swift */,
+				BF677AE0299561ED00FEC522 /* RealTimeView.swift */,
+				BF677AE22995620E00FEC522 /* UploadView.swift */,
+				BF677AE42995622F00FEC522 /* VideoCapture.swift */,
+				BF677AE62995625800FEC522 /* yolo5n_100epoch.mlmodel */,
 				BF677AD42995615F00FEC522 /* Assets.xcassets */,
 				BF677AD62995615F00FEC522 /* Preview Content */,
 			);
@@ -65,6 +91,17 @@
 				BF677AD72995615F00FEC522 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BF677AE82995629F00FEC522 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BF677AE92995640000FEC522 /* InterferenceExtension.swift */,
+				BF677AEF2995645100FEC522 /* UIImageExtension.swift */,
+				BF677AEB2995642100FEC522 /* ScreenShotExtension.swift */,
+				BF677AED2995643B00FEC522 /* UIImage+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +174,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF677ADF299561C800FEC522 /* ImagePicker.swift in Sources */,
+				BF677AE32995620E00FEC522 /* UploadView.swift in Sources */,
 				BF677AD32995615E00FEC522 /* ContentView.swift in Sources */,
+				BF677AEC2995642100FEC522 /* ScreenShotExtension.swift in Sources */,
+				BF677AF02995645100FEC522 /* UIImageExtension.swift in Sources */,
 				BF677AD12995615E00FEC522 /* GravAI_iosApp.swift in Sources */,
+				BF677AE52995622F00FEC522 /* VideoCapture.swift in Sources */,
+				BF677AEA2995640000FEC522 /* InterferenceExtension.swift in Sources */,
+				BF677AEE2995643B00FEC522 /* UIImage+Extension.swift in Sources */,
+				BF677AE1299561ED00FEC522 /* RealTimeView.swift in Sources */,
+				BF677AE72995625800FEC522 /* yolo5n_100epoch.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,7 +316,9 @@
 				DEVELOPMENT_TEAM = FKLM5SV532;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = "GravAI-ios-Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(MARKETING_VERSION)";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -299,7 +347,9 @@
 				DEVELOPMENT_TEAM = FKLM5SV532;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = "GravAI-ios-Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(MARKETING_VERSION)";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
