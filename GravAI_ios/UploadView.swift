@@ -29,6 +29,7 @@ struct UploadView: View {
                     Image(user.samplePhotos[currentIndex], bundle: .main)
                         .resizable()
                         .frame(width: geometry.size.width*0.9, height: geometry.size.width*0.65)
+                        .aspectRatio(contentMode: .fit)
                 } else {
                     if let uiImage = image {
                         Image(uiImage: image!.cropSquare(image: uiImage))

@@ -24,7 +24,7 @@ class Yolov5Interference: ObservableObject {
         let resizedImage = self.image.resizeImageTo(size:size)
         let buffer = resizedImage!.convertToBuffer()
         
-        let output = try? model!.prediction(image: buffer!, iouThreshold: 0.45, confidenceThreshold: 0.3)
+        let output = try? model!.prediction(image: buffer!, iouThreshold: 0.45, confidenceThreshold: 0.25)
         let confidence = convertToClass(from: output!.confidence)
         let coordinates = convertToCoordinates(from: output!.coordinates)
         //print("confidence: \(String(describing: confidence)), coordinates: \(String(describing: coordinates))")
@@ -37,7 +37,8 @@ class Yolov5Interference: ObservableObject {
         var dict: [String:String] = [:]
         // Get length
         let length = mlMultiArray.count
-        if length == 9 {   //0でないことの確認、および時々処理の問題で18になりエラーになるのでチェック
+        print(length)
+        if length == 2 {   //0でないことの確認、および時々処理の問題で18になりエラーになるのでチェック。この数字はクラス数により変わる
             // Set content of multi array to our out put array
             for i in 0...length - 1 {
                 array.append(Double(truncating: mlMultiArray[[0,NSNumber(value: i)]]))
@@ -51,7 +52,7 @@ class Yolov5Interference: ObservableObject {
             print(dict)
             
             //sort array in ascending order and slice the top3
-            let sortData = dict.sorted{ $0.1 > $1.1 } .map { $0 }[0...2]
+            let sortData = dict.sorted{ $0.1 > $1.1 } .map { $0 }[0...1]
             
             print(sortData)
             
