@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF5026B129CC9F2E00895321 /* MobileNetV3_extended.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = BF5026B029CC9F2E00895321 /* MobileNetV3_extended.mlmodel */; };
+		BF5026B329CCA4DB00895321 /* MobileNet_interferenceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5026B229CCA4DB00895321 /* MobileNet_interferenceExtension.swift */; };
 		BF677AD12995615E00FEC522 /* GravAI_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF677AD02995615E00FEC522 /* GravAI_iosApp.swift */; };
 		BF677AD32995615E00FEC522 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF677AD22995615E00FEC522 /* ContentView.swift */; };
 		BF677AD52995615F00FEC522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF677AD42995615F00FEC522 /* Assets.xcassets */; };
@@ -15,14 +17,16 @@
 		BF677AE1299561ED00FEC522 /* RealTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF677AE0299561ED00FEC522 /* RealTimeView.swift */; };
 		BF677AE32995620E00FEC522 /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF677AE22995620E00FEC522 /* UploadView.swift */; };
 		BF677AE52995622F00FEC522 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF677AE42995622F00FEC522 /* VideoCapture.swift */; };
-		BF677AE72995625800FEC522 /* yolo5n_100epoch.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = BF677AE62995625800FEC522 /* yolo5n_100epoch.mlmodel */; };
-		BF677AEA2995640000FEC522 /* InterferenceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF677AE92995640000FEC522 /* InterferenceExtension.swift */; };
+		BF677AEA2995640000FEC522 /* YOLOv5_InterferenceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF677AE92995640000FEC522 /* YOLOv5_InterferenceExtension.swift */; };
 		BF677AEC2995642100FEC522 /* ScreenShotExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF677AEB2995642100FEC522 /* ScreenShotExtension.swift */; };
 		BF677AEE2995643B00FEC522 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF677AED2995643B00FEC522 /* UIImage+Extension.swift */; };
 		BF677AF02995645100FEC522 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF677AEF2995645100FEC522 /* UIImageExtension.swift */; };
+		BFEC607329CB5390005EFD29 /* yolo5n_100epoch.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = BFEC607129CB5390005EFD29 /* yolo5n_100epoch.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF5026B029CC9F2E00895321 /* MobileNetV3_extended.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = MobileNetV3_extended.mlmodel; path = ../../../Downloads/MobileNetV3_extended.mlmodel; sourceTree = "<group>"; };
+		BF5026B229CCA4DB00895321 /* MobileNet_interferenceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileNet_interferenceExtension.swift; sourceTree = "<group>"; };
 		BF677ACD2995615E00FEC522 /* GravAI_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GravAI_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF677AD02995615E00FEC522 /* GravAI_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GravAI_iosApp.swift; sourceTree = "<group>"; };
 		BF677AD22995615E00FEC522 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,12 +36,12 @@
 		BF677AE0299561ED00FEC522 /* RealTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeView.swift; sourceTree = "<group>"; };
 		BF677AE22995620E00FEC522 /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
 		BF677AE42995622F00FEC522 /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
-		BF677AE62995625800FEC522 /* yolo5n_100epoch.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = yolo5n_100epoch.mlmodel; path = ../../../Downloads/yolo5n_100epoch.mlmodel; sourceTree = "<group>"; };
-		BF677AE92995640000FEC522 /* InterferenceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterferenceExtension.swift; sourceTree = "<group>"; };
+		BF677AE92995640000FEC522 /* YOLOv5_InterferenceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLOv5_InterferenceExtension.swift; sourceTree = "<group>"; };
 		BF677AEB2995642100FEC522 /* ScreenShotExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotExtension.swift; sourceTree = "<group>"; };
 		BF677AED2995643B00FEC522 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		BF677AEF2995645100FEC522 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		BF677AF1299568F400FEC522 /* GravAI-ios-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GravAI-ios-Info.plist"; sourceTree = SOURCE_ROOT; };
+		BFEC607129CB5390005EFD29 /* yolo5n_100epoch.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = yolo5n_100epoch.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,10 +79,11 @@
 				BF677AE82995629F00FEC522 /* Extension */,
 				BF677AD22995615E00FEC522 /* ContentView.swift */,
 				BF677ADE299561C800FEC522 /* ImagePicker.swift */,
+				BFEC607129CB5390005EFD29 /* yolo5n_100epoch.mlmodel */,
+				BF5026B029CC9F2E00895321 /* MobileNetV3_extended.mlmodel */,
 				BF677AE0299561ED00FEC522 /* RealTimeView.swift */,
 				BF677AE22995620E00FEC522 /* UploadView.swift */,
 				BF677AE42995622F00FEC522 /* VideoCapture.swift */,
-				BF677AE62995625800FEC522 /* yolo5n_100epoch.mlmodel */,
 				BF677AD42995615F00FEC522 /* Assets.xcassets */,
 				BF677AD62995615F00FEC522 /* Preview Content */,
 			);
@@ -96,7 +101,8 @@
 		BF677AE82995629F00FEC522 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				BF677AE92995640000FEC522 /* InterferenceExtension.swift */,
+				BF677AE92995640000FEC522 /* YOLOv5_InterferenceExtension.swift */,
+				BF5026B229CCA4DB00895321 /* MobileNet_interferenceExtension.swift */,
 				BF677AEF2995645100FEC522 /* UIImageExtension.swift */,
 				BF677AEB2995642100FEC522 /* ScreenShotExtension.swift */,
 				BF677AED2995643B00FEC522 /* UIImage+Extension.swift */,
@@ -175,16 +181,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF677ADF299561C800FEC522 /* ImagePicker.swift in Sources */,
+				BF5026B329CCA4DB00895321 /* MobileNet_interferenceExtension.swift in Sources */,
 				BF677AE32995620E00FEC522 /* UploadView.swift in Sources */,
 				BF677AD32995615E00FEC522 /* ContentView.swift in Sources */,
 				BF677AEC2995642100FEC522 /* ScreenShotExtension.swift in Sources */,
+				BFEC607329CB5390005EFD29 /* yolo5n_100epoch.mlmodel in Sources */,
 				BF677AF02995645100FEC522 /* UIImageExtension.swift in Sources */,
 				BF677AD12995615E00FEC522 /* GravAI_iosApp.swift in Sources */,
 				BF677AE52995622F00FEC522 /* VideoCapture.swift in Sources */,
-				BF677AEA2995640000FEC522 /* InterferenceExtension.swift in Sources */,
+				BF5026B129CC9F2E00895321 /* MobileNetV3_extended.mlmodel in Sources */,
+				BF677AEA2995640000FEC522 /* YOLOv5_InterferenceExtension.swift in Sources */,
 				BF677AEE2995643B00FEC522 /* UIImage+Extension.swift in Sources */,
 				BF677AE1299561ED00FEC522 /* RealTimeView.swift in Sources */,
-				BF677AE72995625800FEC522 /* yolo5n_100epoch.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

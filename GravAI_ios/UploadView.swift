@@ -15,8 +15,9 @@ struct UploadView: View {
     @State var sourceType:  UIImagePickerController.SourceType = .camera
     @State var currentIndex: Int = 0
     @State var samplePhotos =  ["grav_1", "grav_2", "cont_1", "cont_2"]
-    @State var result: (String, [Double]) = ("", [0,0,0,0]) //confidence, coordinate
-    let model = try? yolo5n_100epoch(configuration: MLModelConfiguration())
+    @State var result_YOLO: (String, [Double]) = ("", [0,0,0,0]) //confidence, coordinate
+//    let model = try? yolo5n_100epoch(configuration: MLModelConfiguration())
+    @State var result_MobileNet: (String) = ("")
     
     @State private var rect: CGRect = .zero //スクリーンショット用
     @State var screenImage: UIImage? = nil //スクリーンショット用
@@ -92,13 +93,18 @@ struct UploadView: View {
                     Button(action: {
                         if image == nil{
                             let yolov5Interference = Yolov5Interference(image: UIImage(imageLiteralResourceName: samplePhotos[currentIndex]))
-                            result = yolov5Interference.classify()
+                            result_YOLO = yolov5Interference.classify()
+                            let mobileNetInterference = MobileNetInterference(image: UIImage(imageLiteralResourceName: samplePhotos[currentIndex]))
+                            result_MobileNet = mobileNetInterference.classify()
                         } else {
                             let yolov5Interference = Yolov5Interference(image: image!)
-                            result = yolov5Interference.classify()
+                            result_YOLO = yolov5Interference.classify()
+                            let mobileNetInterference = MobileNetInterference(image: image!)
+                            result_MobileNet = mobileNetInterference.classify()
+                            }
                         }
                         
-                    }){
+                    ){
                         Text("classify")
                     }
                     .padding()
@@ -125,11 +131,22 @@ struct UploadView: View {
                     
                 }
                 
-                //show results
-                Text("\(result.0)")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .padding(.bottom)
+                HStack{
+                    Text("MobileNet:\n \(result_MobileNet)")
+                        .font(.body)
+                        .fontWeight(.bold)
+                        .padding(.bottom)
+                    
+                    Text("YOLO:\n \(result_YOLO.0)")
+                        .font(.body)
+                        .fontWeight(.bold)
+                        .padding(.bottom)
+                }
+                
+//                Text("\(result_YOLO.0)")
+//                    .font(.title)
+//                    .fontWeight(.bold)
+//                    .padding(.bottom)
                 
                 //screenshot button
                 if image != nil {

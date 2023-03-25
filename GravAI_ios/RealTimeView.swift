@@ -36,8 +36,15 @@ struct RealTimeView: View {
             
             //show results
             if image != nil {
-                Text("\(Yolov5Interference(image: image!).classify().0)")
-                    .font(.title)
+                Text("Yolov5\n\(Yolov5Interference(image: image!).classify().0)")
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .padding(.bottom)
+            }
+            
+            if image != nil {
+                Text("MobileNet\n\(MobileNetInterference(image: image!).classify())")
+                    .font(.title2)
                     .fontWeight(.bold)
                     .padding(.bottom)
             }
