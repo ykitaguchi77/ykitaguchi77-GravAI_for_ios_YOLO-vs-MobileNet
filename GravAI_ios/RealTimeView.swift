@@ -11,15 +11,15 @@ import AVFoundation
 
 
 struct RealTimeView: View {
-    // define model
-    let model = try? yolo5n_100epoch(configuration: MLModelConfiguration())
-
     @ObservedObject var user: User
     @State private var image: UIImage?
     @State private var isStreaming: Bool = true
     @State var showAlert = false
     @State var samplePhotos =  ["grav_1", "grav_2", "cont_1", "cont_2"]
-    @State var result: (String, [Double]) = ("", [0,0,0,0]) //confidence, coordinate
+    //@State var result: (String, [Double]) = ("", [0,0,0,0]) //confidence, coordinate
+    @State private var useFrontCamera = true
+
+
     let videoCapture = VideoCapture()
     
     @State private var rect: CGRect = .zero //スクリーンショット用
@@ -35,19 +35,52 @@ struct RealTimeView: View {
             }
             
             //show results
-            if image != nil {
-                Text("Yolov5\n\(Yolov5Interference(image: image!).classify().0)")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .padding(.bottom)
+            if let image = image {
+                let yolov5Result = Yolov5Interference(image: image).classify()
+                
+                HStack {
+                    Text("Yolov5")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .padding(.bottom)
+                    
+                    Spacer()
+                    
+                    Text("\(yolov5Result)")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .padding(.bottom)
+                }
+                
+                ColorChangingProgressView(value: yolov5Result)
+                    .frame(height: 20)
+                    .padding(.horizontal)
             }
             
-            if image != nil {
-                Text("MobileNet\n\(MobileNetInterference(image: image!).classify())")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .padding(.bottom)
+            
+            if let image = image {
+                let mobileNetResult = MobileNetInterference(image: image).classify()
+                
+                HStack {
+                    Text("MobileNetV3")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .padding(.bottom)
+                    
+                    Spacer()
+                    
+                    Text("\(mobileNetResult)")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .padding(.bottom)
+                }
+                
+                ColorChangingProgressView(value: mobileNetResult)
+                    .frame(height: 20)
+                    .padding(.horizontal)
             }
+            
+            
             
             //screenshot button
             if image != nil {
@@ -60,7 +93,7 @@ struct RealTimeView: View {
                 .font(.largeTitle)
             }
             
-
+            
             
         }
         .onAppear{
@@ -90,32 +123,30 @@ struct RealTimeView: View {
         return nil
     }
     
-
-    
-
-
-//    private func classifyImage(image: UIImage) {
-//        //let image = UIImage(named: "aaa")
-//        guard let resizedImage = image.resizeImageTo(size:CGSize(width: 640, height: 640)),
-//              let buffer = resizedImage.convertToBuffer() else {
-//              return
-//        }
-//
-//        print("aaa")
-//
-//        let output = try? model!.prediction(image: buffer, iouThreshold: 0.45, confidenceThreshold: 0.3)
-//        let confidence = output?.confidence
-//        let coordinates = output?.coordinates
-//        print("confidence: \(String(describing: confidence)), coordinates: \(String(describing: coordinates))")
-//
-//
-//        if let output = output {
-//            let confidence = output.confidence
-//            let coordinates = output.coordinates
-//            print("confidence: \(confidence), coordinates: \(coordinates)")
-//        }
-//    }
 }
+
+
+
+struct ColorChangingProgressView: View {
+    var value: Double // Must be between 0 and 1
+    var highThreshold: Double = 0.5 // Red color threshold
+
+    var body: some View {
+        GeometryReader { geometry in
+            ZStack(alignment: .leading) {
+                Rectangle()
+                    .frame(width: CGFloat(self.value) * geometry.size.width, height: geometry.size.height)
+                    .foregroundColor(self.value > highThreshold ? Color.red : Color.white)
+            }
+        }.cornerRadius(5.0)
+    }
+}
+
+
+
+
+
+
 
 
 

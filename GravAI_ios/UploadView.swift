@@ -90,18 +90,18 @@ struct UploadView: View {
                     .background(Color.gray)
                     
                     //Interference
-                    Button(action: {
-                        if image == nil{
-                            let yolov5Interference = Yolov5Interference(image: UIImage(imageLiteralResourceName: samplePhotos[currentIndex]))
-                            result_YOLO = yolov5Interference.classify()
-                            let mobileNetInterference = MobileNetInterference(image: UIImage(imageLiteralResourceName: samplePhotos[currentIndex]))
-                            result_MobileNet = mobileNetInterference.classify()
-                        } else {
-                            let yolov5Interference = Yolov5Interference(image: image!)
-                            result_YOLO = yolov5Interference.classify()
-                            let mobileNetInterference = MobileNetInterference(image: image!)
-                            result_MobileNet = mobileNetInterference.classify()
-                            }
+                    Button(action: { //出力をgravの確率のみにしたので調整必要
+//                        if image == nil{
+//                            let yolov5Interference = Yolov5Interference(image: UIImage(imageLiteralResourceName: samplePhotos[currentIndex]))
+//                            result_YOLO = yolov5Interference.classify()
+//                            let mobileNetInterference = MobileNetInterference(image: UIImage(imageLiteralResourceName: samplePhotos[currentIndex]))
+//                            result_MobileNet = mobileNetInterference.classify()
+//                        } else {
+//                            let yolov5Interference = Yolov5Interference(image: image!)
+//                            result_YOLO = yolov5Interference.classify()
+//                            let mobileNetInterference = MobileNetInterference(image: image!)
+//                            result_MobileNet = mobileNetInterference.classify()
+//                            }
                         }
                         
                     ){
@@ -133,14 +133,14 @@ struct UploadView: View {
                 
                 HStack{
                     Text("MobileNet:\n \(result_MobileNet)")
-                        .font(.body)
+                        .font(.title)
                         .fontWeight(.bold)
                         .padding(.bottom)
                     
-                    Text("YOLO:\n \(result_YOLO.0)")
-                        .font(.body)
-                        .fontWeight(.bold)
-                        .padding(.bottom)
+//                    Text("YOLO:\n \(result_YOLO.0)")
+//                        .font(.title)
+//                        .fontWeight(.bold)
+//                        .padding(.bottom)
                 }
                 
 //                Text("\(result_YOLO.0)")

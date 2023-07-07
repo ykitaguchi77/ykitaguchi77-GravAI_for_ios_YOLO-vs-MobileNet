@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BF5026B129CC9F2E00895321 /* MobileNetV3_extended.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = BF5026B029CC9F2E00895321 /* MobileNetV3_extended.mlmodel */; };
+		BF4EBC1F2A57BFE200F47185 /* MobileNetV3_extended.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = BF4EBC1E2A57BFE200F47185 /* MobileNetV3_extended.mlmodel */; };
 		BF5026B329CCA4DB00895321 /* MobileNet_interferenceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5026B229CCA4DB00895321 /* MobileNet_interferenceExtension.swift */; };
 		BF677AD12995615E00FEC522 /* GravAI_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF677AD02995615E00FEC522 /* GravAI_iosApp.swift */; };
 		BF677AD32995615E00FEC522 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF677AD22995615E00FEC522 /* ContentView.swift */; };
@@ -25,7 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BF5026B029CC9F2E00895321 /* MobileNetV3_extended.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = MobileNetV3_extended.mlmodel; path = ../../../Downloads/MobileNetV3_extended.mlmodel; sourceTree = "<group>"; };
+		BF4EBC1E2A57BFE200F47185 /* MobileNetV3_extended.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV3_extended.mlmodel; sourceTree = "<group>"; };
 		BF5026B229CCA4DB00895321 /* MobileNet_interferenceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileNet_interferenceExtension.swift; sourceTree = "<group>"; };
 		BF677ACD2995615E00FEC522 /* GravAI_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GravAI_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF677AD02995615E00FEC522 /* GravAI_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GravAI_iosApp.swift; sourceTree = "<group>"; };
@@ -79,8 +79,8 @@
 				BF677AE82995629F00FEC522 /* Extension */,
 				BF677AD22995615E00FEC522 /* ContentView.swift */,
 				BF677ADE299561C800FEC522 /* ImagePicker.swift */,
+				BF4EBC1E2A57BFE200F47185 /* MobileNetV3_extended.mlmodel */,
 				BFEC607129CB5390005EFD29 /* yolo5n_100epoch.mlmodel */,
-				BF5026B029CC9F2E00895321 /* MobileNetV3_extended.mlmodel */,
 				BF677AE0299561ED00FEC522 /* RealTimeView.swift */,
 				BF677AE22995620E00FEC522 /* UploadView.swift */,
 				BF677AE42995622F00FEC522 /* VideoCapture.swift */,
@@ -187,9 +187,9 @@
 				BF677AEC2995642100FEC522 /* ScreenShotExtension.swift in Sources */,
 				BFEC607329CB5390005EFD29 /* yolo5n_100epoch.mlmodel in Sources */,
 				BF677AF02995645100FEC522 /* UIImageExtension.swift in Sources */,
+				BF4EBC1F2A57BFE200F47185 /* MobileNetV3_extended.mlmodel in Sources */,
 				BF677AD12995615E00FEC522 /* GravAI_iosApp.swift in Sources */,
 				BF677AE52995622F00FEC522 /* VideoCapture.swift in Sources */,
-				BF5026B129CC9F2E00895321 /* MobileNetV3_extended.mlmodel in Sources */,
 				BF677AEA2995640000FEC522 /* YOLOv5_InterferenceExtension.swift in Sources */,
 				BF677AEE2995643B00FEC522 /* UIImage+Extension.swift in Sources */,
 				BF677AE1299561ED00FEC522 /* RealTimeView.swift in Sources */,

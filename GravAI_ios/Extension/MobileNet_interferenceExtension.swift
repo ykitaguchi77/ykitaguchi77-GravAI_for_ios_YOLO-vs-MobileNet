@@ -20,7 +20,7 @@ class MobileNetInterference: ObservableObject {
         self.image = image
     }
     
-    func classify() -> (String) {
+    func classify() -> (Double) {
         let resizedImage = self.image.resizeImageTo(size:size)
         let buffer = resizedImage!.convertToBuffer()
         
@@ -29,16 +29,21 @@ class MobileNetInterference: ObservableObject {
         if let output = output {
             let results = output.var_879.sorted { $0.1 > $1.1 } //modelにより名前が変わるので注意
             let topThree = results[0...1]
-            let message = topThree.map { (key, value) in
-                return "\(key) = \(String(format: "%.2f", value * 100))%"
-            }.joined(separator: "\n")
             
-            //self.classificationLabel = result
-            return (message)
+            print("key0: \(topThree[0].key), value0: \(topThree[0].value)")
+            print("key1: \(topThree[1].key), value1: \(topThree[1].value)")
+
             
+            if topThree[0].key == "grav" {
+                return Double(topThree[0].value)
+            } else if topThree[0].key == "cont" {
+                return Double(topThree[1].value)
+            } else {
+                return 0.0
+            }
+        } else {
+            return 0.0
         }
-    
-        return ""
     }
 }
 
