@@ -30,8 +30,8 @@ class MobileNetInterference: ObservableObject {
             let results = output.var_879.sorted { $0.1 > $1.1 } //modelにより名前が変わるので注意
             let topThree = results[0...1]
             
-            print("key0: \(topThree[0].key), value0: \(topThree[0].value)")
-            print("key1: \(topThree[1].key), value1: \(topThree[1].value)")
+            //print("key0: \(topThree[0].key), value0: \(topThree[0].value)")
+            //print("key1: \(topThree[1].key), value1: \(topThree[1].value)")
 
             
             if topThree[0].key == "grav" {

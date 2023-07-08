@@ -24,89 +24,164 @@ struct RealTimeView: View {
     
     @State private var rect: CGRect = .zero //スクリーンショット用
     @State var screenImage: UIImage? = nil //スクリーンショット用
+    @State private var isRecordingVideo = false //ビデオ撮影用
+
   
     
     var body: some View {
-        VStack {
-            if let image = image {
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFit()
-            }
-            
-            //show results
-            if let image = image {
-                let yolov5Result = Yolov5Interference(image: image).classify()
-                
-                HStack {
-                    Text("Yolov5")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .padding(.bottom)
-                    
-                    Spacer()
-                    
-                    Text("\(yolov5Result)")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .padding(.bottom)
+        NavigationView {
+            VStack {
+                if let image = image {
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFit()
                 }
                 
-                ColorChangingProgressView(value: yolov5Result)
-                    .frame(height: 20)
-                    .padding(.horizontal)
-            }
-            
-            
-            if let image = image {
-                let mobileNetResult = MobileNetInterference(image: image).classify()
-                
-                HStack {
-                    Text("MobileNetV3")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .padding(.bottom)
+                //show results
+                if let image = image {
+                    let yolov5Result = Yolov5Interference(image: image).classify()
                     
-                    Spacer()
+                    HStack {
+                        Text("Yolov5")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .padding(.bottom)
+                        
+                        Spacer()
+                        
+                        if yolov5Result > 0 {
+                            Text("\(String(format: "%.2f", yolov5Result * 100))%")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .padding(.bottom)
+                        } else {
+                            Text("no image detected")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .padding(.bottom)
+                        }
+                    }
                     
-                    Text("\(mobileNetResult)")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .padding(.bottom)
+                    ColorChangingProgressView(value: yolov5Result)
+                        .frame(height: 20)
+                        .padding(.horizontal)
                 }
                 
-                ColorChangingProgressView(value: mobileNetResult)
-                    .frame(height: 20)
-                    .padding(.horizontal)
-            }
-            
-            
-            
-            //screenshot button
-            if image != nil {
-                Button("screenshot"){
-                    //classifyImage(image: image!)
-                    self.screenImage = UIApplication.shared.windows[0].rootViewController?.view!.getImage(rect: self.rect) //ここがうまくいっていない
-                    UIImageWriteToSavedPhotosAlbum(screenImage!, nil, nil, nil)
-                    //print("screenshot done!")
+                
+                if let image = image {
+                    let mobileNetResult = MobileNetInterference(image: image).classify()
+                    
+                    HStack {
+                        Text("MobileNetV3")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .padding(.bottom)
+                        
+                        Spacer()
+                        
+                        if mobileNetResult > 0 {
+                            Text("\(String(format: "%.2f", mobileNetResult * 100))%")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .padding(.bottom)
+                        } else {
+                            Text("no image detected")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .padding(.bottom)
+                        }
+                    }
+                    
+                    ColorChangingProgressView(value: mobileNetResult)
+                        .frame(height: 20)
+                        .padding(.horizontal)
                 }
-                .font(.largeTitle)
+                
+                
+                HStack(spacing: 10) {
+                    // Screenshot button
+                    if image != nil {
+                        Button(action: {
+                            // classifyImage(image: image!)
+                            self.screenImage = UIApplication.shared.windows[0].rootViewController?.view!.getImage(rect: self.rect) //ここがうまくいっていない
+                            UIImageWriteToSavedPhotosAlbum(screenImage!, nil, nil, nil)
+                            // print("screenshot done!")
+                        }) {
+                            HStack {
+                                Image(systemName: "camera.fill")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 30, height: 30)
+                                Text("Screenshot")
+                                    .font(.title2)
+                                    .fontWeight(.bold)
+                            }
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(height: 50) // Set a fixed height for the button
+                            .background(RoundedRectangle(cornerRadius: 10).fill(Color.blue))
+                            .frame(maxWidth: .infinity) // Set the width to fill available space
+                        }
+                    }
+                    
+                    // Video button
+                    Button(action: {
+                        isRecordingVideo.toggle()
+                    }) {
+                        HStack {
+                            Image(systemName: isRecordingVideo ? "stop.circle.fill" : "video.fill")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 30, height: 30)
+                            Text("Video")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                        }
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(height: 50) // Set a fixed height for the button
+                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.blue))
+                        .frame(maxWidth: .infinity) // Set the width to fill available space
+                    }
+                }
+
+
+
+
             }
-            
-            
-            
-        }
-        .onAppear{
-            videoCapture.run { sampleBuffer in
-                if let convertImage = UIImageFromSampleBuffer(sampleBuffer) {
-                    DispatchQueue.main.async {
-                        self.image = convertImage
+            .onAppear{
+                videoCapture.run { sampleBuffer in
+                    if let convertImage = UIImageFromSampleBuffer(sampleBuffer) {
+                        DispatchQueue.main.async {
+                            self.image = convertImage
+                        }
                     }
                 }
             }
+            .onDisappear(perform: videoCapture.stop)
+            .background(RectangleGetter(rect: $rect))
+            .navigationBarItems(trailing:
+                HStack{
+                    if useFrontCamera{
+                        Text("上のカメラを注視")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundColor(.red)
+                    }
+                
+                    Button(action: {
+                        useFrontCamera.toggle()
+                        videoCapture.switchCamera(useFrontCamera)
+                    }) {
+                        Image(systemName: useFrontCamera ? "arrow.triangle.2.circlepath.camera" : "arrow.triangle.2.circlepath.camera.fill")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .padding()
+                    }
+                }
+
+            )
         }
-        .onDisappear(perform: videoCapture.stop)
-        .background(RectangleGetter(rect: $rect))
     }
 
     func UIImageFromSampleBuffer(_ sampleBuffer: CMSampleBuffer) -> UIImage? {
@@ -124,6 +199,8 @@ struct RealTimeView: View {
     }
     
 }
+
+
 
 
 

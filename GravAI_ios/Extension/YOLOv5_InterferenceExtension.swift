@@ -46,7 +46,7 @@ class Yolov5Interference: ObservableObject {
             }
             
             var sortData = dict.sorted { $0.1 > $1.1 }.map { $0 }[0...1]
-            print("sortData (likelihood): \(sortData)")
+            //print("sortData (likelihood): \(sortData)")
             
             var convertedData = [(key: String, value: Double)]()
             for data in sortData {
@@ -63,7 +63,7 @@ class Yolov5Interference: ObservableObject {
             for i in 0..<convertedData.count {
                 sortData[i] = (key: convertedData[i].key, value: String(format: "%.3f", convertedData[i].value / sum))
             }
-            print("sortData (probability): \(sortData)")
+            //print("sortData (probability): \(sortData)")
 
             if sortData[0].key == "grav" {
                 return Double(sortData[0].value)!
